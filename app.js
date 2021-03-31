@@ -16,6 +16,7 @@ function sortFrequency(string) {
     return result;
 }
 
+// First Version 
 function validPalindrome2(string) {
     let start = 0;
     let end = string.length - 1;
@@ -34,6 +35,30 @@ function isValid(string) {
         if(string[i] !== string[string.length - 1 - i]) {
             return false;
         }
+    }
+    return true;
+}
+
+// Second Version
+function validPalindrome3(string) {
+    let start = 0;
+    let end = string.length - 1;
+
+    let isPalindrome = function(string, start, end) {
+        while(start < end) {
+            if(string.charAt(start++) !== string.charAt(end--)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    while(start < end) {
+        if(string.charAt(start) !== strstartng.charAt(end)) {
+            return isPalindrome(string, start + 1, end) || isPalindrome(string, start, end - 1);
+        }
+        start++;
+        end --;
     }
     return true;
 }
